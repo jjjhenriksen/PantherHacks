@@ -4,7 +4,7 @@
       { "src": "server.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/chat", "methods": ["POST"], "dest": "/server.js" },
+      { "src": "/index.html", "methods": ["POST"], "dest": "/server.js" },
       { "src": "/(.*)", "dest": "/public/$1" }
     ]
   }
