@@ -27,4 +27,5 @@ npm install express
 npm install cors
 ```
 
-After installing, use `node server.js` in your terminal and navigate to `http://localhost:3000`. Congratulations, you've summoned the Wellness Wizard! ✨
+After installing, use `node server.js` in your terminal and navigate to `http://localhost:3000`. 
+Congratulations, you've summoned the Wellness Wizard! ✨
