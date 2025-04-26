@@ -21,7 +21,8 @@ If you don't have Node.js installed on your computer, install it first.
 `brew install npm`
 
 Then use these commands:
-```npm install axios
+```
+npm install axios
 npm install express
 npm install cors
 ```
