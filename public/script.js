@@ -11,7 +11,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
     responseArea.innerHTML = "Thinking...";
 
     try {
-        const res = await fetch('/chat', {
+        const res = await fetch('/api/chat', {  // Change `../api/chat` to `/api/chat`
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
