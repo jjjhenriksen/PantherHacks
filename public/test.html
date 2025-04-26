@@ -1,86 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <script src="https://kit.fontawesome.com/79366da560.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Chatbot with OpenAI API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-5">
 
-    </head>
+<div class="container">
+    <h1 class="mb-4">Ask the AI</h1>
 
-<body>
+    <div class="mb-3">
+        <textarea id="userInput" class="form-control" rows="3" placeholder="Type your message..."></textarea>
+    </div>
+    <button id="sendButton" class="btn btn-primary">Send</button>
 
-<!-- container -->
-<div class="container-fluid" style="
-    background-image: url(https://images.unsplash.com/photo-1525151269265-8b21247c3c9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
-    background-repeat: no-repeat;">
-    
-                <div class="p-5" style="background-color:rgba(0,0,0,0.5);">
-                    <!-- header -->
-                        <div class="p-3 mb-2" style="font-size:25px; font-variant: small-caps; font-weight: 200; border-top: 1px #ffffff solid; border-left: 1px #ffffff solid;"> 
-                            <span style="color:rgba(255,255,255,1); letter-spacing: 4px;">Resurrection of the Stars</span>
-                        </div>
-                    <!-- content -->
-                        <div class="p-2" style="font-size:13px; font-weight: 200; background-color:rgba(0, 0, 0, 0.1)">
-                            <div class="px-3 text-justify" style="color:rgba(255,255,255,1);">
-                                <p>A 15+, literate text-based Warriors RP on Discord. <br><br> <em><b>There were no saints. There were no sinners.</b> Only chilling neutrality. A void, where all the dead go to rest, with nothing but cold, dark, depth. The Stars had not been created by those who held belief in them. These four Clans are struggling with the rise of new rogue groups in their midst, with an old guard of spirits re-emerging after centuries of dormancy. . .</em></p>
-                            </div>
-                                <hr style="background-color:rgba(255, 255, 255, 0.5);">
-                            <div class="px-4 py-2 text-center" style="font-weight: 200; letter-spacing: 5px; color:rgba(255,255,255,1); background-color:rgba(0,0,0,0.2);">
-                                <a href="https://discord.gg/wkgJwhtRcp">s e r v e r  . i n v i t e</a>
-                            </div>
-                        </div>
-                </div>
-
-<!-- credit -->
-<div class="pull-right">
-    <a href="https://unsplash.com/photos/R0mWlPiK1hw"><i class="far fa-image-polaroid"></i></a>
-    
-    <a href="https://toyhou.se/acodingperson"><i class="fal fa-blanket"></i></a>
-</div>
-<!-- /credit-->
-
+    <div class="mt-4">
+        <h4>Response:</h4>
+        <div id="responseArea" class="border p-3 rounded bg-light"></div>
+    </div>
 </div>
 
-<!-- container -->
-<div class="container-fluid" style="
-    background-image: url(https://images.unsplash.com/photo-1525151269265-8b21247c3c9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
-    background-repeat: no-repeat;">
-    
-                <div class="p-5" style="background-color:rgba(0,0,0,0.5);">
-                    <!-- header -->
-                        <div class="p-3 mb-2" style="font-size:25px; font-variant: small-caps; font-weight: 200; border-top: 1px #ffffff solid; border-left: 1px #ffffff solid;"> 
-                            <span style="color:rgba(255,255,255,1); letter-spacing: 4px;">Resurrection of the Stars</span>
-                        </div>
-                    <!-- content -->
-                        <div class="p-2" style="font-size:13px; font-weight: 200; background-color:rgba(0, 0, 0, 0.1)">
-                            <div class="px-3 text-justify" style="color:rgba(255,255,255,1);">
-                                <p>A 15+, literate text-based Warriors RP on Discord. <br><br> <em><b>There were no saints. There were no sinners.</b> Only chilling neutrality. A void, where all the dead go to rest, with nothing but cold, dark, depth. The Stars had not been created by those who held belief in them. These four Clans are struggling with the rise of new rogue groups in their midst, with an old guard of spirits re-emerging after centuries of dormancy. . .</em></p>
-                            </div>
-                                <hr style="background-color:rgba(255, 255, 255, 0.5);">
-                            <div class="px-4 py-2 text-center" style="font-weight: 200; letter-spacing: 5px; color:rgba(255,255,255,1); background-color:rgba(0,0,0,0.2);">
-                                <a href="https://discord.gg/wkgJwhtRcp">s e r v e r  . i n v i t e</a>
-                            </div>
-                        </div>
-                </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
 
-<!-- credit -->
-<div class="pull-right">
-    <a href="https://unsplash.com/photos/R0mWlPiK1hw"><i class="far fa-image-polaroid"></i></a>
-    
-    <a href="https://toyhou.se/acodingperson"><i class="fal fa-blanket"></i></a>
-</div>
-<!-- /credit-->
-
-</div>
 </body>
 </html>

@@ -1,0 +1,26 @@
+{
+  "name": "pantherhacks",
+  "version": "1.0.0",
+  "description": "PantherHacks 2025 project repo Name: Wellness Wizard Description: Wellness Wizard is a medicalgbt that allows you to identify your symptoms with  a chatbox and provide you with solutions to combat your illness.  License: Status:   Authors: Jacqueline Henriksen, Melissa Campos Huallanca, and San San goh",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjjhenriksen/PantherHacks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjjhenriksen/PantherHacks/issues"
+  },
+  "homepage": "https://github.com/jjjhenriksen/PantherHacks#readme",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

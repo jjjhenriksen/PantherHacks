@@ -126,12 +126,17 @@
                     <div class="card" style="background-color: rgba(35, 31, 32, 0.5); margin-top:5em;">
                         <div class="card-body" style="color:white">
                             <h5 class="card-title"><i class="fa-solid fa-wand-sparkles"></i> Chat with the Wellness Wizard</h5>
+                            <img src="assets/wizard logo.png" style="text-align:center; width:200px;">
                             <p class="card-text">Type your symptoms or concerns below:</p>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter your symptoms here..." aria-label="User input" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                              <textarea id="userInput" class="form-control bg-dark" rows="3" placeholder="Type your message here..." style="color:white"></textarea>
+                                <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
                             </div>
-                            
+                            <!-- RESPONSE AREA -->
+                            <div class="mt-4">
+                              <h4>Response:</h4>
+                              <div id="responseArea" class="border p-3 rounded bg-dark"></div>
+                          </div>
                             <!-- ALERT INSIDE THE CARD -->
                             <div class="container">
                                 <div class="alert alert-dismissible fade show" role="alert" style="background-color:rgba(165, 0, 52, 0.5)"><small>Disclaimer: The Wellness Wizard is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or licensed healthcare provider with any questions you may have regarding a medical condition.</small>
@@ -167,4 +172,7 @@
               </div>
             </div>
             </nav>
+
+            <script src="script.js"></script>
+
 </html>
