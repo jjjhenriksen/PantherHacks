@@ -23,6 +23,6 @@ If you don't have Node.js installed on your computer, install it first.
 Then use these commands:
 ```npm install axios
 npm install express
-npm install cors```
+npm install cors`
 
 After installing, use `node server.js` in your terminal and navigate to `http://localhost:3000`. Congratulations, you've summoned the Wellness Wizard! ✨
