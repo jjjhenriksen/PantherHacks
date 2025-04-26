@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-//Configure OpenAI
+// Configure OpenAI
 const configuration = new openai.Configuration({
     organization: process.env.OPENAI_ORG,
     apiKey: process.env.OPENAI_API_KEY,
