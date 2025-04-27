@@ -27,6 +27,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
   
       // Magical typing animation ✨
       responseArea.innerText = ""; // Clear thinking text
+      responseArea.classList.add('glow');
       let index = 0;
   
       function typeLetter() {
