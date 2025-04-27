@@ -23,6 +23,6 @@ document.getElementById('sendButton').addEventListener('click', async () => {
         responseArea.innerHTML = data.reply;
     } catch (error) {
         console.error(error);
-        responseArea.innerHTML = "Error contacting the server." + error.message;
+        responseArea.innerHTML = "Error message from server: " + error.message;
     }
 });
