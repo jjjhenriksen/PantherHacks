@@ -12,9 +12,9 @@ export default async function handler(req, res) {
         const { message } = req.body;
 
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-            model: "gpt-4.1-nano",
+            model: "gpt-4.1-nano",  // Ensure this is a valid model ID
             messages: [
-                { role: "system", content: "You are a whimsical Wellness Wizard — a playful, kind, and wise magical being who helps humans find peace, joy, and balance in simple, easy-to-understand ways..." },
+                { role: "system", content: "You are a whimsical Wellness Wizard — ..." },  // Truncated content for brevity
                 { role: "user", content: message }
             ]
         }, {
@@ -24,9 +24,16 @@ export default async function handler(req, res) {
             }
         });
 
-        res.status(200).json({ reply: response.data.choices[0].message.content });
+        // Check if the response data is as expected
+        if (response.data && response.data.choices && response.data.choices[0]) {
+            res.status(200).json({ reply: response.data.choices[0].message.content });
+        } else {
+            throw new Error('Unexpected OpenAI API response structure');
+        }
     } catch (error) {
-        console.error(error.response ? error.response.data : error.message);
-        res.status(500).json({ message: 'Something went wrong with OpenAI API' });
+        console.error("Error from OpenAI API:", error.response ? error.response.data : error.message);
+        
+        // Send a valid JSON response for error handling
+        res.status(500).json({ message: 'Something went wrong with OpenAI API', error: error.message });
     }
 }

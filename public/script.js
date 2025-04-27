@@ -11,7 +11,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
     responseArea.innerHTML = "Thinking...";
 
     try {
-        const res = await fetch('/api/chat', {  // Change `../api/chat` to `/api/chat`
+        const res = await fetch('/api/chat', {  // Changed from ../api/chat to /api/chat
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,10 +19,14 @@ document.getElementById('sendButton').addEventListener('click', async () => {
             body: JSON.stringify({ message: userInput })
         });
 
-        const data = await res.json();
-        responseArea.innerHTML = data.reply;
+        const data = await res.json();  // This expects a valid JSON response
+        if (data && data.reply) {
+            responseArea.innerHTML = data.reply;
+        } else {
+            throw new Error("Invalid response format");
+        }
     } catch (error) {
-        console.error(error);
-        responseArea.innerHTML = "Error message from server: " + error.message;
+        console.error("Error:", error);
+        responseArea.innerHTML = "Error contacting the server.";
     }
 });
