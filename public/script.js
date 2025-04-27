@@ -27,6 +27,6 @@ document.getElementById('sendButton').addEventListener('click', async () => {
         }
     } catch (error) {
         console.error("Error:", error);
-        responseArea.innerHTML = "Error contacting the server.";
+        responseArea.innerHTML = "Error contacting the server. Error: " + error.message;
     }
 });
