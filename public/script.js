@@ -7,7 +7,6 @@ document.getElementById('sendButton').addEventListener('click', async () => {
       return;
     }
   
-    responseArea.classList.remove('glow');  // Remove glow before new message
     responseArea.innerText = "The Wizard is thinking... ✨";
   
     try {
@@ -26,18 +25,17 @@ document.getElementById('sendButton').addEventListener('click', async () => {
       const data = await res.json();
       const reply = data.reply;
   
-      // Start magical typing
-      responseArea.innerText = "";
-      responseArea.classList.add('glow');  // Add glow when typing starts
+      // Magical typing animation ✨
+      responseArea.innerText = ""; // Clear thinking text
       let index = 0;
   
       function typeLetter() {
         if (index < reply.length) {
-          responseArea.innerText += reply[index];
+          responseArea.textContent += reply[index]; // <-- use textContent instead!
           index++;
           setTimeout(typeLetter, 30);
         } else {
-          responseArea.classList.remove('glow'); // Remove glow after finished
+          responseArea.classList.remove('glow');
         }
       }
   
