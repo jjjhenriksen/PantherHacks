@@ -1,7 +1,9 @@
 # Wellness Wizard
 
 ## About the Project
-Wellness Wizard is our team's submission to the inaugural PantherHacks! We used [Chapman University brand colors](https://brand.chapman.edu/colors/) in honor of PantherHacks being the first Chapman hackathon! 
+Wellness Wizard is our team's submission to the inaugural PantherHacks! Our AI-powered chatbot is designed to provide you with personalized wellness tips, resources, and support. Whether you're feeling stressed, anxious, or just need someone to talk to, Wellness Wizard is your go-to companion for all things wellness. Wellness Wizard uses OpenAI's gpt-4.1-nano model.
+
+We used [Chapman University brand colors](https://brand.chapman.edu/colors/) in honor of PantherHacks being the first Chapman hackathon! 
 
 We built this web application using Bootstrap, Node.js, and the OpenAI API.
 
