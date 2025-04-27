@@ -22,12 +22,8 @@ We built this web application using Bootstrap, Node.js, and the OpenAI API.
 If you don't have Node.js installed on your computer, install it first.
 `brew install npm`
 
-Then use these commands:
-```
-npm install axios
-npm install express
-npm install cors
-```
+Also make sure to install the Vercel CLI and have an OpenAI key ready. Update your `.env` to include this key.
+Then, use `vercel dev` and navigate to `http://localhost:3000`. 
 
-After installing, use `node server.js` in your terminal and navigate to `http://localhost:3000`. 
+
 Congratulations, you've summoned the Wellness Wizard! ✨
