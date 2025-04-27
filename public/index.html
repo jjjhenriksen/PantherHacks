@@ -27,6 +27,19 @@
             .alert {
                 margin-top: 20px;
             }
+
+            .glow {
+              animation: glow 1s infinite alternate;
+            }
+
+            @keyframes glow {
+              from {
+                text-shadow: 0 0 5px #ffd700, 0 0 10px #ffa500, 0 0 20px #ff8c00;
+              }
+              to {
+                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500, 0 0 30px #ff8c00;
+              }
+            }
         </style>
     </head>
 

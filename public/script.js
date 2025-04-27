@@ -1,32 +1,50 @@
-// public/script.js
 document.getElementById('sendButton').addEventListener('click', async () => {
-    const userInput = document.getElementById('userInput').value;
+    const userInput = document.getElementById('userInput').value.trim();
     const responseArea = document.getElementById('responseArea');
-
-    if (!userInput.trim()) {
-        responseArea.innerHTML = "Please type something!";
-        return;
+  
+    if (!userInput) {
+      responseArea.innerText = "Please type something!";
+      return;
     }
-
-    responseArea.innerHTML = "Thinking...";
-
+  
+    responseArea.classList.remove('glow');  // Remove glow before new message
+    responseArea.innerText = "The Wizard is thinking... ✨";
+  
     try {
-        const res = await fetch('/api/chat', {  // Changed from ../api/chat to /api/chat
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userInput })
-        });
-
-        const data = await res.json();  // This expects a valid JSON response
-        if (data && data.reply) {
-            responseArea.innerHTML = data.reply;
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: userInput })
+      });
+  
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
+      }
+  
+      const data = await res.json();
+      const reply = data.reply;
+  
+      // Start magical typing
+      responseArea.innerText = "";
+      responseArea.classList.add('glow');  // Add glow when typing starts
+      let index = 0;
+  
+      function typeLetter() {
+        if (index < reply.length) {
+          responseArea.innerText += reply[index];
+          index++;
+          setTimeout(typeLetter, 30);
         } else {
-            throw new Error("Invalid response format");
+          responseArea.classList.remove('glow'); // Remove glow after finished
         }
+      }
+  
+      typeLetter();
+  
     } catch (error) {
-        console.error("Error:", error);
-        responseArea.innerHTML = "Error contacting the server. Error: " + error.message;
+      console.error(error);
+      responseArea.innerText = "Oops! The Wizard got lost in the stars. ✨";
     }
-});
+  });
